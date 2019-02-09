@@ -1,4 +1,5 @@
-[
+{
+  "posts" : [
   {
     "author": "Alberto Roberto",
     "id": 1,
@@ -44,3 +45,4 @@
 
   }
 ]
+}
