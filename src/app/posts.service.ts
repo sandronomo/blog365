@@ -10,7 +10,7 @@ export class PostsService {
 
   posts(): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.http.get('https://my-json-server.typicode.com/sandronomo/blog365', {})
+      this.http.get('https://jsonplaceholder.typicode.com/posts', {})
         .subscribe(
           (result: any) => {
             resolve(result);
