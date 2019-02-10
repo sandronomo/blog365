@@ -1,25 +1,40 @@
-<section class="post" *ngFor="let post of posts">
-  <article>
-    <h2>
+<section class="post" *ngFor="let post of posts | paginate: { itemsPerPage: 5, currentPage: p }">
+  <div class="container">
+    <article>
+      <h2 class="title-post">
         {{post.title}}
-    </h2>
-    <div class="infos">
-      <span>
-
-      </span>
-      <span class="author">
-
-      </span>
-      <span>
-
-      </span>
-      <figure>
-        <img src="">
+      </h2>
+      <div class="infos d-flex justify-content-center">
+        <span>
+          Destination Europe
+        </span>
+        <span class="author">
+          Added by <b>John Williams Doe</b>
+        </span>
+        <span>
+          January 01, 2018
+        </span>
+      </div>
+      <figure class="post-image">
+        <img src="assets/img/post-image.jpg">
       </figure>
       <div class="text">
         <p>{{post.body}}</p>
       </div>
-      <a href="/post/{{post.id}}" class="read-more">Read More</a>
-    </div>
-  </article>
+      <a href="/post/{{post.id}}" class="read-more">
+        Read More
+      </a>
+    </article>
+  </div>
 </section>
+
+<pagination-template #pT="paginationApi" (pageChange)="p = $event">
+
+  <div class="pagination-previous" [class.disabled]="pT.isFirstPage()">
+    <a *ngIf="!pT.isFirstPage()" (click)="pT.previous()"> previous </a>
+  </div>
+  <div class="pagination-next" [class.disabled]="pT.isLastPage()">
+    <a *ngIf="!pT.isLastPage()" (click)="pT.next()"> next </a>
+  </div>
+
+</pagination-template>
