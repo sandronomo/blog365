@@ -1,3 +1,61 @@
-<p>
-  post-detail works!
-</p>
+<section class="post post-detail">
+    <div class="container">
+      <article>
+        <h1 class="title-post">
+          {{post.title}}
+        </h1>
+        <div class="infos row justify-content-md-center">
+          <span>
+            Destination Europe
+          </span>
+          <span class="author">
+            Added by <b>John Williams Doe</b>
+          </span>
+          <span>
+            January 01, 2018
+          </span>
+        </div>
+        <figure class="post-image">
+          <img src="assets/img/post-image.jpg">
+        </figure>
+        <div class="text">
+          <p>
+            {{post.body}}
+          </p>
+        </div>
+      </article>
+      <div class="footer-article">
+        <p class="left">
+            Published by John Doe Williams on January 01, 2018
+        </p>
+        <p class="right">
+            Posted Under “Destination Europe” 
+        </p>
+        <div class="comments">
+            <button class="btn read-more" (click)="triggerComments()" *ngIf="showComments == false">
+              Show {{commentsLength}} comments
+            </button>
+            <div class="list-comments" *ngIf="showComments == true">
+                <h2>
+                  Comments:
+                </h2>
+              <div class="comment" *ngFor="let comment of comments">
+                <p class="email-user">
+                  {{comment.email}}
+                </p>
+                <h3>
+                  {{comment.name}}
+                </h3>
+                <p>
+                  {{comment.body}}
+                </p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <a href="/post/{{post.id - 1}}" class="pager left">previous article</a>
+        <a href="/post/{{post.id + 1}}" class="pager right">next article</a>
+      </div>
+    </div>
+  </section>
