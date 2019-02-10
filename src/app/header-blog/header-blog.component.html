@@ -1,0 +1,54 @@
+<header>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="logo-section col col-lg-3 col-md-12">
+        <div class="logo">
+          <img src="../assets/img/logo.svg">
+        </div>
+        <div class="social">
+          <a href="#">
+            <img src="../assets/img/facebook.svg">
+          </a>
+          <a href="#">
+            <img src="../assets/img/instagram.svg">
+          </a>
+          <a href="#">
+            <img src="../assets/img/linked-in.svg">
+          </a>
+          <a href="#">
+            <img src="../assets/img/youtube.svg">
+          </a>
+          <button (click)="openMenu()" class="trigger-menu">
+            {{textMenu}}
+          </button>
+        </div>
+      </div>
+      <div [class.open-menu]="open == true" class="menu col col-lg-9 col-md-12">
+        <nav>
+          <ul>
+            <li>
+              <a href="#">
+                Travel Updates
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Reviews
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
