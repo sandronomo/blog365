@@ -23,6 +23,14 @@ export class PostDetailComponent implements OnInit {
     this.showComments = !this.showComments;
   }
 
+  scrollTop() {
+    window.scroll({
+      behavior: 'smooth',
+      left: 0,
+      top: 50
+    });
+  }
+
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.postsService.post(id).then((post: any) => {

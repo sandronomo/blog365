@@ -16,6 +16,14 @@ export class HomeComponent implements OnInit {
 
   constructor(public postsService: PostsService) { }
 
+  scrollTop() {
+    window.scroll({
+      behavior: 'smooth',
+      left: 0,
+      top: 50
+    });
+  }
+
   ngOnInit() {
     this.postsService.posts().then((post: any) => {
       this.posts = post;

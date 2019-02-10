@@ -4,7 +4,7 @@
       <h2 class="title-post">
         {{post.title}}
       </h2>
-      <div class="infos d-flex justify-content-center">
+      <div class="infos row justify-content-md-center">
         <span>
           Destination Europe
         </span>
@@ -27,14 +27,13 @@
     </article>
   </div>
 </section>
-
-<pagination-template #pT="paginationApi" (pageChange)="p = $event">
-
-  <div class="pagination-previous" [class.disabled]="pT.isFirstPage()">
-    <a *ngIf="!pT.isFirstPage()" (click)="pT.previous()"> previous </a>
+<section>
+  <div class="container">
+    <pagination-template #pT="paginationApi" (pageChange)="p = $event">
+        <div class="pagination">
+          <a *ngIf="!pT.isFirstPage()" (click)="pT.previous(); scrollTop()" class="pager left">previous</a>
+          <a  *ngIf="!pT.isLastPage()" (click)="pT.next(); scrollTop()" class="pager right">next</a>
+        </div>
+    </pagination-template>
   </div>
-  <div class="pagination-next" [class.disabled]="pT.isLastPage()">
-    <a *ngIf="!pT.isLastPage()" (click)="pT.next()"> next </a>
-  </div>
-
-</pagination-template>
+</section>
