@@ -12,6 +12,7 @@ export class PostDetailComponent implements OnInit {
   post = [];
   comments = [];
   commentsLength: number;
+  postsLength: number;
   showComments = false;
   constructor(
     private route: ActivatedRoute,
@@ -23,18 +24,17 @@ export class PostDetailComponent implements OnInit {
     this.showComments = !this.showComments;
   }
 
-  scrollTop() {
-    window.scroll({
-      behavior: 'smooth',
-      left: 0,
-      top: 50
-    });
-  }
-
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.postsService.post(id).then((post: any) => {
       this.post = post;
+    }).catch((error) => {
+      console.log(error);
+    });
+
+    this.postsService.posts().then((posts: any) => {
+      this.postsLength = posts.length;
+      console.log(this.postsLength)
     }).catch((error) => {
       console.log(error);
     });

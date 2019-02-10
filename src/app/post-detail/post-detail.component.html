@@ -53,9 +53,9 @@
             </div>
         </div>
       </div>
-      <div class="pagination">
-        <a href="/post/{{post.id - 1}}" class="pager left">previous article</a>
-        <a href="/post/{{post.id + 1}}" class="pager right">next article</a>
-      </div>
+        <div class="pagination">
+          <a *ngIf="post.id > 1" href="/post/{{post.id - 1}}" class="pager left">previous article</a>
+          <a *ngIf="post.id < postsLength" href="/post/{{post.id + 1}}" class="pager right">next article</a>
+        </div>
     </div>
   </section>
